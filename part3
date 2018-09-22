@@ -1,0 +1,19 @@
+file1=$1
+for line in `cat /etc/passwd`
+do
+	usr=$(echo $line | cut -d ':' -f1)
+	home=$(echo $line | cut -d ':' -f6)
+
+	if [ "$home" = "" ]
+	then
+		echo "Account" $usr "does't have a home directory" 
+	echo "$home"
+	elif [ -e "${home}/${file1}" ]
+	then
+		echo "Account" $usr "has the file!"
+	else
+		echo "Account" $usr "does not own file" $file1
+	fi
+
+done
+

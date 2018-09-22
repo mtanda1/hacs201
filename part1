@@ -1,0 +1,17 @@
+sum=0 
+file1=$1
+for doc in $@
+do
+	if [ ! -f $doc ]
+	then
+		echo $doc": 1"
+	else
+ 
+		for line in `cat $doc`
+		do
+			sum=$((sum + line))
+		done
+	fi
+done
+echo $sum
+ 

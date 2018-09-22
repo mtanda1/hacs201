@@ -1,0 +1,16 @@
+file1=$1
+if [ $# -gt 1 ]
+then
+	echo "only enter one argument"
+elif [ $# -lt 1 ]
+then
+	echo "please enter an argument"
+else
+	if [ ! -d "cache" ]
+	then
+		`mkdir cache`
+	fi
+	cp $file1 cache
+	rm $file1
+fi
+
